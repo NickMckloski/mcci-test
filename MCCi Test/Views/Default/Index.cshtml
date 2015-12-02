@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MCCi_Test.Models.UserModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "New User";
+}
+
+<button class="btn btn-sm btn-default" id="show">Show Content Div</button>
+
+<!--Content hiding test-->
+<br />
+<div class="content">
+    Content Div
+</div>
+<br />
+
+<!--CRUD test-->
+<h3>Users 
+    <a class="btn btn-sm btn-default" href="@Url.Action("NewUser", "Default")" style="float: right;"><span class="glyphicon glyphicon-plus"></span> 
+        New User
+    </a>
+</h3>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Prefix</th>
+            <th>User ID</th>
+            <th>Suffix</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+            {
+            <tr>
+                <td>
+                    @user.Prefix
+                </td>
+                <td>
+                    @user.UserID
+                </td>
+                <td>
+                    @user.Suffix
+                    <div style="float: right;">
+                        <a class="btn btn-sm btn-default"
+                           href="@Url.Action("EditUser", "Default", user.RouteValues)">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </a>
+                        <a class="btn btn-sm btn-default"
+                           href="@Url.Action("DeleteUser", "Default", user.RouteValues)">
+                            <span class="glyphicon glyphicon-remove"></span> Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<script>
+    $(".content").hide();
+    $("#show").click(function () {
+        $(".content").show();
+    });
+</script>
+

@@ -1,0 +1,38 @@
+﻿@model MCCi_Test.Models.UserModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Edit User";
+}
+
+<div>
+
+    <h3>Edit User:</h3>
+    Editing User: @Html.ValueFor(obj => obj.RouteValues["UserID"])
+    <br />
+    <br />
+    @{
+        var Validations = Request.HttpMethod == "POST";
+
+        using (Html.BeginForm())
+        {
+            //Prefix
+            @Html.LabelFor(obj => obj.Prefix);
+            <br />
+            @Html.TextBoxFor(obj => obj.Prefix);
+            <br />
+            if (Validations) { @Html.ValidationMessageFor(obj => obj.Prefix) };
+            <br />
+
+            //Suffix
+            @Html.LabelFor(obj => obj.Suffix);
+            <br />
+            @Html.TextBoxFor(obj => obj.Suffix);
+            <br />
+            if (Validations) { @Html.ValidationMessageFor(obj => obj.Suffix) };
+
+            <br />
+            <br />
+            <input type="submit" value="Edit User" />
+        }
+    }
+</div>

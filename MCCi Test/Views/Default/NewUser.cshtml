@@ -1,0 +1,42 @@
+﻿@model MCCi_Test.Models.UserModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "New User";
+}
+
+<div>
+
+    <h3>New User Entry:</h3>
+    <br />
+    @{
+        using (Html.BeginForm())
+        {
+            //Prefix
+            @Html.LabelFor(obj => obj.Prefix);
+            <br />
+            @Html.TextBoxFor(obj => obj.Prefix);
+            <br />
+            @Html.ValidationMessageFor(obj => obj.Prefix);
+            <br />
+
+            //UserID
+            @Html.LabelFor(obj => obj.UserID);
+            <br />
+            @Html.TextBoxFor(obj => obj.UserID);
+            <br />
+            @Html.ValidationMessageFor(obj => obj.UserID);
+            <br />
+
+            //Suffix
+            @Html.LabelFor(obj => obj.Suffix);
+            <br />
+            @Html.TextBoxFor(obj => obj.Suffix);
+            <br />
+            @Html.ValidationMessageFor(obj => obj.Suffix);
+
+            <br />
+            <br />
+            <input type="submit" value="New User" />
+        }
+    }
+</div>
