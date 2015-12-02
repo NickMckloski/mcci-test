@@ -21,18 +21,6 @@ namespace MCCi_Test.Models
         [DisplayName("Suffix")]
         public string Suffix { get; set; }
 
-        public RouteValueDictionary RouteValues
-        {
-            get
-            {
-                var values = new RouteValueDictionary();
-                values["Prefix"] = Prefix;
-                values["UserID"] = UserID;
-                values["Suffix"] = Suffix;
-                return values;
-            }
-        }
-
     }
 
     //custom atribute class
@@ -53,20 +41,6 @@ namespace MCCi_Test.Models
                 return new ValidationResult("This user ID already exists.");
 
             return ValidationResult.Success;
-        }
-    }
-
-    [AttributeUsage(AttributeTargets.All)]
-    public class IgnoreValidation : ActionFilterAttribute
-    {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var modelState = filterContext.Controller.ViewData.ModelState;
-
-            foreach (var modelValue in modelState.Values)
-            {
-                modelValue.Errors.Clear();
-            }
         }
     }
 
