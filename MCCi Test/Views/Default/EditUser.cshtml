@@ -6,8 +6,7 @@
 
 <div>
 
-    <h3>Edit User:</h3>
-    Editing User: @Html.ValueFor(obj => obj.RouteValues["UserID"])
+    <h3>Editing User '@Html.ValueFor(obj => obj.RouteValues["UserID"])': </h3>
     <br />
     <br />
     @{
@@ -32,7 +31,7 @@
 
             <br />
             <br />
-            <input type="submit" value="Edit User" />
+            <input class="btn btn-sm btn-default" type="submit" value="Edit User" />
         }
     }
 </div>

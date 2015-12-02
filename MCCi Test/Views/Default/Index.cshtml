@@ -41,11 +41,11 @@
                     @user.Suffix
                     <div style="float: right;">
                         <a class="btn btn-sm btn-default"
-                           href="@Url.Action("EditUser", "Default", new RouteValueDictionary(user))">
+                           href="@Url.Action("EditUser", "Default", user.RouteValues)">
                             <span class="glyphicon glyphicon-pencil"></span> Edit
                         </a>
                         <a class="btn btn-sm btn-default"
-                           href="@Url.Action("DeleteUser", "Default", new RouteValueDictionary(user))">
+                           href="@Url.Action("DeleteUser", "Default", user.RouteValues)">
                             <span class="glyphicon glyphicon-remove"></span> Delete
                         </a>
                     </div>

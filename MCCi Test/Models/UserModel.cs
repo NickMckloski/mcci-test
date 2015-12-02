@@ -21,6 +21,18 @@ namespace MCCi_Test.Models
         [DisplayName("Suffix")]
         public string Suffix { get; set; }
 
+        public RouteValueDictionary RouteValues
+        {
+            get
+            {
+                var values = new RouteValueDictionary();
+                values["Prefix"] = Prefix;
+                values["UserID"] = UserID;
+                values["Suffix"] = Suffix;
+                return values;
+            }
+        }
+
     }
 
     //custom atribute class
